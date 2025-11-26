@@ -1,51 +1,64 @@
- /* Custom Utilities */
-        .glass-nav {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        /* Abstract Code Patterns for Thumbnails */
-        .pattern-grid {
-            background-image: radial-gradient(#42b883 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        .pattern-lines {
-            background: repeating-linear-gradient( 45deg, #1e293b, #1e293b 10px, #0f172a 10px, #0f172a 20px );
-        }
-        
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
+.glass-nav {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
 
-/* Brand icon helpers */
+
+.pattern-grid {
+  background-image: radial-gradient(#42b883 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.pattern-lines {
+  background: repeating-linear-gradient(
+    45deg,
+    #1e293b,
+    #1e293b 10px,
+    #0f172a 10px,
+    #0f172a 20px
+  );
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+
 .brand-icon {
-    display: inline-block;
-    vertical-align: middle;
-    transition: transform .16s ease, filter .16s ease, opacity .16s ease;
-    will-change: transform, filter;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.16s ease, filter 0.16s ease, opacity 0.16s ease;
+  will-change: transform, filter;
 }
 .brand-icon:focus,
 .brand-icon:hover {
-    transform: translateY(-3px);
-    filter: drop-shadow(0 8px 18px rgba(2,6,23,0.6));
-    opacity: 1;
+  transform: translateY(-3px);
+  filter: drop-shadow(0 8px 18px rgba(2, 6, 23, 0.6));
+  opacity: 1;
 }
-.brand-ps { color: #31A8FF; }
-.brand-ai { color: #FF9A00; }
-.brand-lr { color: #00A3A3; }
+.brand-ps {
+  color: #31a8ff;
+}
+.brand-ai {
+  color: #ff9a00;
+}
+.brand-lr {
+  color: #00a3a3;
+}
 
-/* Respect existing utility sizing (h-8/w-8) while ensuring SVG uses currentColor */
-.brand-icon svg { width: 100%; height: 100%; }
+
+.brand-icon svg {
+  width: 100%;
+  height: 100%;
+}
