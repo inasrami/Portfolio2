@@ -37,6 +37,7 @@ Built with a lightweight, no-build approach for maximum speed and simplicity.
 
 The portfolio highlights several key applications:
 
+* **EuroGuard:** A zero-dependency web application that verifies the authenticity of Euro banknotes using the official ECB checksum algorithm.
 * **ShiftEase:** A shift management tool using SheetJS to export schedules to Excel.
 * **Barbers Unity:** A booking platform frontend for barbers and clients.
 * **DNA of Design:** A color palette extraction tool using Computer Vision to analyze websites.
