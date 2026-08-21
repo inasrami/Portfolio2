@@ -8,6 +8,47 @@
     <meta name="description"
         content="Portfolio of Inas Rami, a Software Design student and Front-End Developer specializing in Vue.js and Creative Design.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        accent: {
+                            400: '#42b883', // Vue.js Green-ish
+                            500: '#3aa876',
+                            600: '#35495e', // Vue.js Dark Blue
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -376,7 +417,15 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div class="lg:col-span-7 order-2 lg:order-1">
                         <div class="relative rounded-xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900 h-64 sm:h-80 w-full group">
-                            <img src="images/shiftEase.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform" alt="ShiftEase Project Screenshot" />
+                            <img 
+                                src="images/shiftEase.png" 
+                                data-lightbox
+                                data-caption="ShiftEase — Web-based schedule management tool"
+                                data-link="https://shift-ease-kappa.vercel.app"
+                                data-link-text="View Live Demo"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform cursor-zoom-in" 
+                                alt="ShiftEase Project Screenshot" 
+                            />
                         </div>
                     </div>
                     <div class="lg:col-span-5 order-1 lg:order-2">
@@ -422,7 +471,15 @@
                     </div>
                     <div class="lg:col-span-7 order-2 lg:order-1">
                         <div class="relative rounded-xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900 h-64 sm:h-80 w-full group">
-                            <img src="images/barbersUnity.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform" alt="Barbers Unity Project Screenshot" />
+                            <img 
+                                src="images/barbersUnity.png" 
+                                data-lightbox
+                                data-caption="Barbers Unity — Platform for barbers and clients"
+                                data-link="https://barbersunity.com/"
+                                data-link-text="View Live Demo"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform cursor-zoom-in" 
+                                alt="Barbers Unity Project Screenshot" 
+                            />
                         </div>
                     </div>
                 </div>
@@ -430,7 +487,15 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div class="lg:col-span-7 order-2 lg:order-1">
                         <div class="relative rounded-xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900 h-64 sm:h-80 w-full group">
-                            <img src="images/dnaofdesign.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform" alt="DNA of Design Project Screenshot" />
+                            <img 
+                                src="images/dnaofdesign.png" 
+                                data-lightbox
+                                data-caption="DNA of Design — Website color palette extractor"
+                                data-link="https://inasrami.github.io/dna-of-design/"
+                                data-link-text="View Live Demo"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform cursor-zoom-in" 
+                                alt="DNA of Design Project Screenshot" 
+                            />
                         </div>
                     </div>
                     <div class="lg:col-span-5 order-1 lg:order-2">
@@ -478,7 +543,15 @@
                 <div class="lg:col-span-7 order-2">
                     <div class="relative rounded-xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900 h-64 sm:h-80 w-full group">
                         <div class="w-full h-full flex items-center justify-center bg-slate-800 text-slate-500">
-                            <img src="images/hotelprestige.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform" alt="Hotel Prestige Project Screenshot" />
+                            <img 
+                                src="images/hotelprestige.png" 
+                                data-lightbox
+                                data-caption="Hotel Prestige — Hotel management application"
+                                data-link="https://hotel-prestige.vercel.app"
+                                data-link-text="View Live Demo"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform cursor-zoom-in" 
+                                alt="Hotel Prestige Project Screenshot" 
+                            />
                         </div>
                     </div>
                 </div>
@@ -487,7 +560,15 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-20">
                 <div class="lg:col-span-7 order-2 lg:order-1">
                     <div class="relative rounded-xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900 h-64 sm:h-80 w-full group">
-                        <img src="images/aurum.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform" alt="Aurum Luxury Project Screenshot" />
+                        <img 
+                            src="images/aurum.png" 
+                            data-lightbox
+                            data-caption="Aurum Luxury — High-end digital experience for a luxury hotel"
+                            data-link="https://inasrami.github.io/aurum-luxury/"
+                            data-link-text="View Live Demo"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform cursor-zoom-in" 
+                            alt="Aurum Luxury Project Screenshot" 
+                        />
                     </div>
                 </div>
                 <div class="lg:col-span-5 order-1 lg:order-2">
@@ -540,7 +621,15 @@
                 </div>
                 <div class="lg:col-span-7 order-2">
                     <div class="relative rounded-xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900 h-64 sm:h-80 w-full group">
-                        <img src="images/euroguard.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform" alt="EuroGuard Project Screenshot" />
+                        <img 
+                            src="images/euroguard.png" 
+                            data-lightbox
+                            data-caption="EuroGuard — Euro banknote validator"
+                            data-link="https://euro-guard.vercel.app"
+                            data-link-text="View Live Demo"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform cursor-zoom-in" 
+                            alt="EuroGuard Project Screenshot" 
+                        />
                     </div>
                 </div>
             </div>
@@ -562,90 +651,181 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-
-            <a href="https://softuni.bg/certificates/details/262094/c7864737" target="_blank" class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
-                <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-slate-800 rounded-lg overflow-hidden relative">
-                    <img src="images/postgresql.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="PostgreSQL Certificate" />
+            <!-- Cert 1 -->
+            <div class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
+                <img 
+                    src="images/jsBackend.png"
+                    data-lightbox
+                    data-full="images/jsBackend.png"
+                    data-caption="JS Back-end — SoftUni (July 2026 - Aug 2026)"
+                    data-link="https://softuni.bg/certificates/details/264629/305db564"
+                    data-link-text="View Certificate"
+                    class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 object-cover rounded-lg cursor-zoom-in group-hover:scale-110 transition-transform duration-300"
+                    alt="JS Back-end Certificate" 
+                />
+                <div class="ml-4 flex-grow">
+                    <h3 class="text-white font-semibold text-sm sm:text-base leading-tight mb-1 group-hover:text-accent-400 transition-colors">JS Back-end</h3>
+                    <p class="text-accent-400 text-xs font-mono mb-1">SoftUni</p>
+                    <p class="text-slate-500 text-xs">July 2026 - Aug 2026</p>
                 </div>
+                <a href="https://softuni.bg/certificates/details/264629/305db564" target="_blank" class="text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" aria-label="Open certificate on SoftUni">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+
+            <!-- Cert 2 -->
+            <div class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
+                <img 
+                    src="images/postgresql.jpg"
+                    data-lightbox
+                    data-full="images/postgresql.jpg"
+                    data-caption="PostgreSQL — SoftUni (May 2026 - June 2026)"
+                    data-link="https://softuni.bg/certificates/details/262094/c7864737"
+                    data-link-text="View Certificate"
+                    class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 object-cover rounded-lg cursor-zoom-in group-hover:scale-110 transition-transform duration-300"
+                    alt="PostgreSQL Certificate" 
+                />
                 <div class="ml-4 flex-grow">
                     <h3 class="text-white font-semibold text-sm sm:text-base leading-tight mb-1 group-hover:text-accent-400 transition-colors">PostgreSQL</h3>
                     <p class="text-accent-400 text-xs font-mono mb-1">SoftUni</p>
                     <p class="text-slate-500 text-xs">May 2026 - June 2026</p>
                 </div>
-                <svg class="w-5 h-5 text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
+                <a href="https://softuni.bg/certificates/details/262094/c7864737" target="_blank" class="text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" aria-label="Open certificate on SoftUni">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
 
-            <a href="https://softuni.bg/certificates/details/259751/4b23bad0" target="_blank" class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
-                <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-slate-800 rounded-lg overflow-hidden relative">
-                    <img src="images/TypeScript.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="TypeScript Certificate" />
-                </div>
+            <!-- Cert 3 -->
+            <div class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
+                <img 
+                    src="images/TypeScript.jpg"
+                    data-lightbox
+                    data-full="images/TypeScript.jpg"
+                    data-caption="TypeScript — SoftUni (Feb 2026 - Apr 2026)"
+                    data-link="https://softuni.bg/certificates/details/259751/4b23bad0"
+                    data-link-text="View Certificate"
+                    class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 object-cover rounded-lg cursor-zoom-in group-hover:scale-110 transition-transform duration-300"
+                    alt="TypeScript Certificate" 
+                />
                 <div class="ml-4 flex-grow">
                     <h3 class="text-white font-semibold text-sm sm:text-base leading-tight mb-1 group-hover:text-accent-400 transition-colors">TypeScript</h3>
                     <p class="text-accent-400 text-xs font-mono mb-1">SoftUni</p>
                     <p class="text-slate-500 text-xs">Feb 2026 - Apr 2026</p>
                 </div>
-                <svg class="w-5 h-5 text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
-            
-            <a href="https://softuni.bg/certificates/details/257767/92e7d447" target="_blank" class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
-                <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-slate-800 rounded-lg overflow-hidden relative">
-                    <img src="images/HTMLCSS.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="HTML & CSS Certificate" />
-                </div>
+                <a href="https://softuni.bg/certificates/details/259751/4b23bad0" target="_blank" class="text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" aria-label="Open certificate on SoftUni">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+
+            <!-- Cert 4 -->
+            <div class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
+                <img 
+                    src="images/HTMLCSS.jpg"
+                    data-lightbox
+                    data-full="images/HTMLCSS.jpg"
+                    data-caption="HTML & CSS — SoftUni (Jan 2026 - Feb 2026)"
+                    data-link="https://softuni.bg/certificates/details/257767/92e7d447"
+                    data-link-text="View Certificate"
+                    class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 object-cover rounded-lg cursor-zoom-in group-hover:scale-110 transition-transform duration-300"
+                    alt="HTML & CSS Certificate" 
+                />
                 <div class="ml-4 flex-grow">
                     <h3 class="text-white font-semibold text-sm sm:text-base leading-tight mb-1 group-hover:text-accent-400 transition-colors">HTML &amp; CSS</h3>
                     <p class="text-accent-400 text-xs font-mono mb-1">SoftUni</p>
                     <p class="text-slate-500 text-xs">Jan 2026 - Feb 2026</p>
                 </div>
-                <svg class="w-5 h-5 text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
+                <a href="https://softuni.bg/certificates/details/257767/92e7d447" target="_blank" class="text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" aria-label="Open certificate on SoftUni">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
 
-            <a href="https://softuni.bg/certificates/details/254335/0aca4cb3" target="_blank" class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
-                <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-slate-800 rounded-lg overflow-hidden relative">
-                    <img src="images/Applications.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="JS Applications Certificate" />
-                </div>
+            <!-- Cert 5 -->
+            <div class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
+                <img 
+                    src="images/Applications.png"
+                    data-lightbox
+                    data-full="images/Applications.png"
+                    data-caption="JS Applications — SoftUni (Oct 2025 - Dec 2025)"
+                    data-link="https://softuni.bg/certificates/details/254335/0aca4cb3"
+                    data-link-text="View Certificate"
+                    class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 object-cover rounded-lg cursor-zoom-in group-hover:scale-110 transition-transform duration-300"
+                    alt="JS Applications Certificate" 
+                />
                 <div class="ml-4 flex-grow">
                     <h3 class="text-white font-semibold text-sm sm:text-base leading-tight mb-1 group-hover:text-accent-400 transition-colors">JS Applications</h3>
                     <p class="text-accent-400 text-xs font-mono mb-1">SoftUni</p>
                     <p class="text-slate-500 text-xs">Oct 2025 - Dec 2025</p>
                 </div>
-                <svg class="w-5 h-5 text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
+                <a href="https://softuni.bg/certificates/details/254335/0aca4cb3" target="_blank" class="text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" aria-label="Open certificate on SoftUni">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
 
-            <a href="https://softuni.bg/certificates/details/251411/1dcf05c3" target="_blank" class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
-                <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-slate-800 rounded-lg overflow-hidden relative">
-                    <img src="images/advanced.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="JS Advanced Certificate" />
-                </div>
+            <!-- Cert 6 -->
+            <div class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
+                <img 
+                    src="images/advanced.png"
+                    data-lightbox
+                    data-full="images/advanced.png"
+                    data-caption="JS Advanced — SoftUni (Sept 2025 - Oct 2025)"
+                    data-link="https://softuni.bg/certificates/details/251411/1dcf05c3"
+                    data-link-text="View Certificate"
+                    class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 object-cover rounded-lg cursor-zoom-in group-hover:scale-110 transition-transform duration-300"
+                    alt="JS Advanced Certificate" 
+                />
                 <div class="ml-4 flex-grow">
                     <h3 class="text-white font-semibold text-sm sm:text-base leading-tight mb-1 group-hover:text-accent-400 transition-colors">JS Advanced</h3>
                     <p class="text-accent-400 text-xs font-mono mb-1">SoftUni</p>
                     <p class="text-slate-500 text-xs">Sept 2025 - Oct 2025</p>
                 </div>
-                <svg class="w-5 h-5 text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
+                <a href="https://softuni.bg/certificates/details/251411/1dcf05c3" target="_blank" class="text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" aria-label="Open certificate on SoftUni">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
 
-            <a href="https://softuni.bg/certificates/details/248075/bc3ef65a" target="_blank" class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
-                <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-slate-800 rounded-lg overflow-hidden relative">
-                    <img src="images/fundamentals.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Programming Fundamentals Certificate" />
-                </div>
+            <!-- Cert 7 -->
+            <div class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
+                <img 
+                    src="images/fundamentals.png"
+                    data-lightbox
+                    data-full="images/fundamentals.png"
+                    data-caption="Programming Fundamentals — SoftUni (May 2025 - Aug 2025)"
+                    data-link="https://softuni.bg/certificates/details/248075/bc3ef65a"
+                    data-link-text="View Certificate"
+                    class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 object-cover rounded-lg cursor-zoom-in group-hover:scale-110 transition-transform duration-300"
+                    alt="Programming Fundamentals Certificate" 
+                />
                 <div class="ml-4 flex-grow">
                     <h3 class="text-white font-semibold text-sm sm:text-base leading-tight mb-1 group-hover:text-accent-400 transition-colors">Programming Fundamentals</h3>
                     <p class="text-accent-400 text-xs font-mono mb-1">SoftUni</p>
                     <p class="text-slate-500 text-xs">May 2025 - Aug 2025</p>
                 </div>
-                <svg class="w-5 h-5 text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
+                <a href="https://softuni.bg/certificates/details/248075/bc3ef65a" target="_blank" class="text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" aria-label="Open certificate on SoftUni">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
 
-            <a href="https://softuni.bg/certificates/details/237212/df01536e" target="_blank" class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
-                <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-slate-800 rounded-lg overflow-hidden relative">
-                    <img src="images/basics.JPG" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Programming Basics Certificate" />
-                </div>
+            <!-- Cert 8 -->
+            <div class="flex items-center p-3 bg-slate-900 rounded-xl border border-slate-800 hover:border-accent-500/50 transition-all group shadow-lg">
+                <img 
+                    src="images/basics.JPG"
+                    data-lightbox
+                    data-full="images/basics.JPG"
+                    data-caption="Programming Basics — SoftUni (Jan 2025 - Apr 2025)"
+                    data-link="https://softuni.bg/certificates/details/237212/df01536e"
+                    data-link-text="View Certificate"
+                    class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 object-cover rounded-lg cursor-zoom-in group-hover:scale-110 transition-transform duration-300"
+                    alt="Programming Basics Certificate" 
+                />
                 <div class="ml-4 flex-grow">
                     <h3 class="text-white font-semibold text-sm sm:text-base leading-tight mb-1 group-hover:text-accent-400 transition-colors">Programming Basics</h3>
                     <p class="text-accent-400 text-xs font-mono mb-1">SoftUni</p>
                     <p class="text-slate-500 text-xs">Jan 2025 - Apr 2025</p>
                 </div>
-                <svg class="w-5 h-5 text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
+                <a href="https://softuni.bg/certificates/details/237212/df01536e" target="_blank" class="text-slate-600 group-hover:text-accent-400 transition-colors ml-2 shrink-0" aria-label="Open certificate on SoftUni">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
 
         </div>
     </section>
@@ -679,6 +859,19 @@
             &copy; <span id="year"></span> Inas Rami. All rights reserved.
         </p>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <div class="lightbox-container">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <img id="lightbox-img" class="lightbox-image" src="" alt="" />
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

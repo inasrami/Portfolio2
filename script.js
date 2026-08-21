@@ -114,3 +114,73 @@ document.querySelectorAll('section > div').forEach(el => {
     el.style.opacity = '0';
     observer.observe(el);
 });
+
+// ===== Image Lightbox =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.getElementById('lightbox-close');
+
+// Find all images that should be enlargeable
+const enlargeableImages = document.querySelectorAll('img[data-lightbox]');
+
+enlargeableImages.forEach(img => {
+  img.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    openLightbox(img);
+  });
+
+  // Keyboard accessibility
+  img.setAttribute('tabindex', '0');
+  img.setAttribute('role', 'button');
+  img.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openLightbox(img);
+    }
+  });
+});
+
+function openLightbox(img) {
+  const fullSrc = img.dataset.full || img.src;
+  const caption = img.dataset.caption || img.alt || '';
+  const link = img.dataset.link || '';
+  const linkText = img.dataset.linkText || 'View Certificate';
+
+  lightboxImg.src = fullSrc;
+  lightboxImg.alt = img.alt;
+
+  let captionHTML = `<div>${caption}</div>`;
+  if (link) {
+    captionHTML += `<a href="${link}" target="_blank" rel="noopener" class="lightbox-link">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+      </svg>
+      ${linkText}
+    </a>`;
+  }
+  lightboxCaption.innerHTML = captionHTML;
+
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+  lightboxImg.src = '';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox || e.target === lightbox.querySelector('.lightbox-container')) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+    closeLightbox();
+  }
+});
