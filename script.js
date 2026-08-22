@@ -1,6 +1,7 @@
 // Set current year
 document.getElementById('year').textContent = new Date().getFullYear();
 
+document.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
 // Mobile Menu Toggle
 const btn = document.getElementById('mobile-menu-btn');
 const menu = document.getElementById('mobile-menu');
