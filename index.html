@@ -274,8 +274,8 @@
                 <h3 class="text-lg font-semibold text-white mb-4">Tools & Basics</h3>
                 <ul class="space-y-2 text-slate-400">
                     <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>Git & GitHub</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>Java (Basics)</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>Python (Basics)</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>Claude</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>n8n</li>
                     <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>MS Office Suite</li>
                 </ul>
             </div>
@@ -333,7 +333,7 @@
                     <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-800 bg-slate-900 shadow-xl hover:border-blue-500/50 transition-colors">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                             <h3 class="font-bold text-white text-lg">Logistic</h3>
-                            <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-1 rounded border border-blue-500/20 mt-2 sm:mt-0 w-max">Oct 2025 - Present</span>
+                            <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-1 rounded border border-blue-500/20 mt-2 sm:mt-0 w-max">Oct 2025 - Aug 2026</span>
                         </div>
                         <div class="text-sm text-slate-400 mb-4 font-medium flex items-center gap-2">
                             eBag <span class="w-1 h-1 bg-slate-600 rounded-full"></span> Part-time <span class="w-1 h-1 bg-slate-600 rounded-full"></span> On-site
@@ -351,7 +351,7 @@
                     <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-800 bg-slate-900 shadow-xl hover:border-purple-500/50 transition-colors">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                             <h3 class="font-bold text-white text-lg">Ads Quality Rating Program</h3>
-                            <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-1 rounded border border-purple-500/20 mt-2 sm:mt-0 w-max">Sep 2025 - Present</span>
+                            <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-1 rounded border border-purple-500/20 mt-2 sm:mt-0 w-max">Sep 2025 - Apr 2026</span>
                         </div>
                         <div class="text-sm text-slate-400 mb-4 font-medium flex items-center gap-2">
                             TELUS Digital <span class="w-1 h-1 bg-slate-600 rounded-full"></span> Freelance <span class="w-1 h-1 bg-slate-600 rounded-full"></span> Remote
@@ -420,6 +420,7 @@
                             <img 
                                 src="images/shiftEase.png" 
                                 data-lightbox
+                                data-full="images/shiftEase.png"
                                 data-caption="ShiftEase — Web-based schedule management tool"
                                 data-link="https://shift-ease-kappa.vercel.app"
                                 data-link-text="View Live Demo"
@@ -474,6 +475,7 @@
                             <img 
                                 src="images/barbersUnity.png" 
                                 data-lightbox
+                                data-full="images/barbersUnity.png"
                                 data-caption="Barbers Unity — Platform for barbers and clients"
                                 data-link="https://barbersunity.com/"
                                 data-link-text="View Live Demo"
@@ -490,6 +492,7 @@
                             <img 
                                 src="images/dnaofdesign.png" 
                                 data-lightbox
+                                data-full="images/dnaofdesign.png"
                                 data-caption="DNA of Design — Website color palette extractor"
                                 data-link="https://inasrami.github.io/dna-of-design/"
                                 data-link-text="View Live Demo"
@@ -546,6 +549,7 @@
                             <img 
                                 src="images/hotelprestige.png" 
                                 data-lightbox
+                                data-full="images/hotelprestige.png"
                                 data-caption="Hotel Prestige — Hotel management application"
                                 data-link="https://hotel-prestige.vercel.app"
                                 data-link-text="View Live Demo"
@@ -563,6 +567,7 @@
                         <img 
                             src="images/aurum.png" 
                             data-lightbox
+                            data-full="images/aurum.png"
                             data-caption="Aurum Luxury — High-end digital experience for a luxury hotel"
                             data-link="https://inasrami.github.io/aurum-luxury/"
                             data-link-text="View Live Demo"
@@ -624,6 +629,7 @@
                         <img 
                             src="images/euroguard.png" 
                             data-lightbox
+                            data-full="images/euroguard.png"
                             data-caption="EuroGuard — Euro banknote validator"
                             data-link="https://euro-guard.vercel.app"
                             data-link-text="View Live Demo"
@@ -845,94 +851,19 @@
     </footer>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image viewer">
-      <div class="lightbox-container">
-        <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">
+    <div id="lightbox" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] flex items-center justify-center p-6 opacity-0 pointer-events-none transition-opacity duration-300">
+      <div class="relative max-w-[90vw] max-h-[90vh] transform scale-95 transition-transform duration-300" id="lightbox-container">
+        <button class="absolute -top-12 right-0 bg-slate-800/80 border border-white/10 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:bg-red-500 hover:border-red-500 transition-all hover:rotate-90" id="lightbox-close" aria-label="Close image viewer">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
-        <img id="lightbox-img" class="lightbox-image" src="" alt="" />
-        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <img id="lightbox-img" class="max-w-[90vw] max-h-[80vh] object-contain rounded-xl border border-accent-500/30 shadow-2xl" src="" alt="" />
+        <div class="absolute -bottom-16 left-0 right-0 text-center text-slate-300 text-sm font-mono flex flex-col items-center gap-3" id="lightbox-caption"></div>
       </div>
     </div>
 
     <script src="script.js"></script>
-    <script>
-        // ===== Image Lightbox =====
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        const lightboxClose = document.getElementById('lightbox-close');
-
-        // Find all elements that should trigger the lightbox (images or wrapper divs)
-        const lightboxTriggers = document.querySelectorAll('[data-lightbox]');
-
-        lightboxTriggers.forEach(trigger => {
-          trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            openLightbox(trigger);
-          });
-
-          // Keyboard accessibility
-          trigger.setAttribute('tabindex', '0');
-          trigger.setAttribute('role', 'button');
-          trigger.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              openLightbox(trigger);
-            }
-          });
-        });
-
-        function openLightbox(trigger) {
-          // If the trigger is a wrapper div, find the image inside it. Otherwise, use the trigger itself.
-          const img = trigger.querySelector('img') || trigger;
-          const fullSrc = trigger.dataset.full || img.src;
-          const caption = trigger.dataset.caption || img.alt || '';
-          const link = trigger.dataset.link || '';
-          const linkText = trigger.dataset.linkText || 'View Certificate';
-
-          if (!fullSrc) return;
-
-          lightboxImg.src = fullSrc;
-          lightboxImg.alt = img.alt;
-
-          let captionHTML = `<div>${caption}</div>`;
-          if (link) {
-            captionHTML += `<a href="${link}" target="_blank" rel="noopener" class="lightbox-link">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-              </svg>
-              ${linkText}
-            </a>`;
-          }
-          lightboxCaption.innerHTML = captionHTML;
-
-          lightbox.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-          lightbox.classList.remove('active');
-          document.body.style.overflow = '';
-          lightboxImg.src = '';
-        }
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => {
-          if (e.target === lightbox || e.target === lightbox.querySelector('.lightbox-container')) {
-            closeLightbox();
-          }
-        });
-
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-          }
-        });
-    </script>
 </body>
 
 </html>

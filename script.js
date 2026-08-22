@@ -1,43 +1,3 @@
-tailwind.config = {
-    darkMode: 'class',
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                mono: ['JetBrains Mono', 'monospace'],
-            },
-            colors: {
-                slate: {
-                    850: '#1e293b',
-                    900: '#0f172a',
-                    950: '#020617',
-                },
-                accent: {
-                    400: '#42b883', // Vue.js Green-ish
-                    500: '#3aa876',
-                    600: '#35495e', // Vue.js Dark Blue
-                }
-            },
-            animation: {
-                'blob': 'blob 7s infinite',
-                'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-            },
-            keyframes: {
-                blob: {
-                    '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                    '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                    '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                    '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                },
-                fadeInUp: {
-                    '0%': { opacity: '0', transform: 'translateY(20px)' },
-                    '100%': { opacity: '1', transform: 'translateY(0)' },
-                }
-            }
-        }
-    }
-}
-
 // Set current year
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -62,7 +22,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const targetId = this.getAttribute('href');
 
-        // Handle empty hash or just hash
         if (targetId === '#') {
             window.scrollTo({
                 top: 0,
@@ -117,43 +76,47 @@ document.querySelectorAll('section > div').forEach(el => {
 
 // ===== Image Lightbox =====
 const lightbox = document.getElementById('lightbox');
+const lightboxContainer = document.getElementById('lightbox-container');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxCaption = document.getElementById('lightbox-caption');
 const lightboxClose = document.getElementById('lightbox-close');
 
-// Find all images that should be enlargeable
-const enlargeableImages = document.querySelectorAll('img[data-lightbox]');
+// Find all elements that should trigger the lightbox (images or wrapper divs)
+const lightboxTriggers = document.querySelectorAll('[data-lightbox]');
 
-enlargeableImages.forEach(img => {
-  img.addEventListener('click', (e) => {
+lightboxTriggers.forEach(trigger => {
+  trigger.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    openLightbox(img);
+    openLightbox(trigger);
   });
 
   // Keyboard accessibility
-  img.setAttribute('tabindex', '0');
-  img.setAttribute('role', 'button');
-  img.addEventListener('keydown', (e) => {
+  trigger.setAttribute('tabindex', '0');
+  trigger.setAttribute('role', 'button');
+  trigger.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      openLightbox(img);
+      openLightbox(trigger);
     }
   });
 });
 
-function openLightbox(img) {
-  const fullSrc = img.dataset.full || img.src;
-  const caption = img.dataset.caption || img.alt || '';
-  const link = img.dataset.link || '';
-  const linkText = img.dataset.linkText || 'View Certificate';
+function openLightbox(trigger) {
+  const img = trigger.querySelector('img') || trigger;
+  const fullSrc = trigger.dataset.full || img.src;
+  const caption = trigger.dataset.caption || img.alt || '';
+  const link = trigger.dataset.link || '';
+  const linkText = trigger.dataset.linkText || 'View Certificate';
+
+  if (!fullSrc) return;
 
   lightboxImg.src = fullSrc;
   lightboxImg.alt = img.alt;
 
   let captionHTML = `<div>${caption}</div>`;
   if (link) {
-    captionHTML += `<a href="${link}" target="_blank" rel="noopener" class="lightbox-link">
+    captionHTML += `<a href="${link}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-accent-500/15 border border-accent-500/30 rounded-lg text-accent-400 text-sm font-medium hover:bg-accent-500/25 transition-all">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
       </svg>
@@ -162,25 +125,31 @@ function openLightbox(img) {
   }
   lightboxCaption.innerHTML = captionHTML;
 
-  lightbox.classList.add('active');
+  lightbox.classList.remove('opacity-0', 'pointer-events-none');
+  lightbox.classList.add('opacity-100');
+  lightboxContainer.classList.remove('scale-95');
+  lightboxContainer.classList.add('scale-100');
   document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox() {
-  lightbox.classList.remove('active');
+  lightbox.classList.add('opacity-0', 'pointer-events-none');
+  lightbox.classList.remove('opacity-100');
+  lightboxContainer.classList.add('scale-95');
+  lightboxContainer.classList.remove('scale-100');
   document.body.style.overflow = '';
   lightboxImg.src = '';
 }
 
 lightboxClose.addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox || e.target === lightbox.querySelector('.lightbox-container')) {
+  if (e.target === lightbox || e.target === lightboxContainer) {
     closeLightbox();
   }
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+  if (e.key === 'Escape' && !lightbox.classList.contains('opacity-0')) {
     closeLightbox();
   }
 });
